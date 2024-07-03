@@ -16,27 +16,17 @@
 <body>
     <?php
 
-    //learn from w3schools.com
-    //Unset all the server side variables
-
     session_start();
 
     $_SESSION["user"]="";
     $_SESSION["usertype"]="";
     
-    // Set the new timezone
     date_default_timezone_set('Asia/Kolkata');
     $date = date('Y-m-d');
 
     $_SESSION["date"]=$date;
     
-
-    //import database
     include("connection.php");
-
-    
-
-
 
     if($_POST){
 
@@ -49,7 +39,6 @@
         if($result->num_rows==1){
             $utype=$result->fetch_assoc()['usertype'];
             if ($utype=='p'){
-                //TODO
                 $checker = $database->query("select * from patient where pemail='$email' and ppassword='$password'");
                 if ($checker->num_rows==1){
 
@@ -65,7 +54,6 @@
                 }
 
             }elseif($utype=='a'){
-                //TODO
                 $checker = $database->query("select * from admin where aemail='$email' and apassword='$password'");
                 if ($checker->num_rows==1){
 
@@ -82,7 +70,6 @@
 
 
             }elseif($utype=='d'){
-                //TODO
                 $checker = $database->query("select * from doctor where docemail='$email' and docpassword='$password'");
                 if ($checker->num_rows==1){
 

@@ -18,26 +18,17 @@
 <body>
 <?php
 
-//learn from w3schools.com
-//Unset all the server side variables
-
 session_start();
 
 $_SESSION["user"]="";
 $_SESSION["usertype"]="";
 
-// Set the new timezone
 date_default_timezone_set('Asia/Kolkata');
 $date = date('Y-m-d');
 
 $_SESSION["date"]=$date;
 
-
-//import database
 include("connection.php");
-
-
-
 
 
 if($_POST){
@@ -64,7 +55,6 @@ if($_POST){
         if($result->num_rows==1){
             $error='<label for="promter" class="form-label" style="color:rgb(255, 62, 62);text-align:center;">Already have an account for this Email address.</label>';
         }else{
-            //TODO
             $database->query("insert into patient(pemail,pname,ppassword, paddress, pnic,pdob,ptel) values('$email','$name','$newpassword','$address','$nic','$dob','$tele');");
             $database->query("insert into webuser values('$email','p')");
 

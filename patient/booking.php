@@ -21,8 +21,6 @@
 <body>
     <?php
 
-    //learn from w3schools.com
-
     session_start();
 
     if(isset($_SESSION["user"])){
@@ -35,9 +33,7 @@
     }else{
         header("location: ../login.php");
     }
-    
 
-    //import database
     include("../connection.php");
 
     $sqlmain= "select * from patient where pemail=?";
@@ -232,9 +228,6 @@
                                             <input type="hidden" name="scheduleid" value="'.$scheduleid.'" >
                                             <input type="hidden" name="apponum" value="'.$apponum.'" >
                                             <input type="hidden" name="date" value="'.$today.'" >
-
-                                        
-                                    
                                     ';
                                      
 
@@ -296,15 +289,7 @@
                                             </td>
                                         </tr>
                                         '; 
-                                        
-
-
-
-
                                 }
-
-
-
                             }
                             
                             ?>
